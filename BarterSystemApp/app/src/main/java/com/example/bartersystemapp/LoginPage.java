@@ -20,7 +20,7 @@ public class LoginPage extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(LoginPage.this,SignUpPage.class);
+                Intent i=new Intent(LoginPage.this,SearchResult.class);
                 startActivity(i);
             }
         });
