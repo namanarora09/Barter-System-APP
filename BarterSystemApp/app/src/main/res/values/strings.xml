@@ -14,4 +14,16 @@
         <item>Title 9</item>
         <item>Title 10</item>
     </string-array>
+    <string-array name="description">
+        <item>DESC</item>
+        <item>DESC</item>
+        <item>DESC</item>
+        <item>DESC</item>
+        <item>DESC</item>
+        <item>DESC</item>
+        <item>DESC</item>
+        <item>DESC</item>
+        <item>DESC</item>
+        <item>DESC</item>
+    </string-array>
 </resources>

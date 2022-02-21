@@ -10,6 +10,7 @@ public class SearchResult extends AppCompatActivity {
 
 
     String s1[];
+    String s2[];
     int images[]={R.drawable.transparencya,R.drawable.transparencyb,R.drawable.transparencyc,R.drawable.transparencyd,R.drawable.transparencye, R.drawable.transparencyf,R.drawable.transparencyg,R.drawable.transparencyh,R.drawable.transparencyi,R.drawable.transparencyj};
 
     @Override
@@ -19,8 +20,9 @@ public class SearchResult extends AppCompatActivity {
         RecyclerView recyclerView=findViewById(R.id.recycleView);
 
         s1=getResources().getStringArray(R.array.Titles);
+        s2=getResources().getStringArray(R.array.description);
 
-        MyAdapter myAdapter=new MyAdapter(this,s1,images);
+        MyAdapter myAdapter=new MyAdapter(this,s1,s2,images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

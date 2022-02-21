@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:contentDescription="Back"
     tools:context=".SearchResult">
 
@@ -20,7 +21,7 @@
         app:layout_constraintVertical_bias="0.000">
 
         <ImageView
-            android:id="@+id/left_icon"
+            android:id="@+id/backSearchResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -35,16 +36,17 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/left_icon"
+            android:layout_toEndOf="@+id/backSearchResult"
             android:text="Search Result"
             android:textColor="@color/black"
             android:textSize="20sp" />
     </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
-        android:layout_marginTop="81dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="81dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
