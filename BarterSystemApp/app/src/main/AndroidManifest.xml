@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarterSystemApp">
         <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
             android:name=".ProductDescription"
             android:exported="false"
-            android:parentActivityName=".SearchResult"
-            android:label="Product Details"/>
+            android:label="Product Details"
+            android:parentActivityName=".SearchResult" />
         <activity
             android:name=".SellPage"
             android:exported="false" />

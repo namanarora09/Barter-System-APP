@@ -2,6 +2,7 @@
     <string name="app_name">Barter System App</string>
     <string name="image_upload">Upload Image</string>
     <string name="select_category">Select a category</string>
+    <string name="menu">Menu</string>
     <string-array name="Titles">
         <item>Title 1</item>
         <item>Title 2</item>
