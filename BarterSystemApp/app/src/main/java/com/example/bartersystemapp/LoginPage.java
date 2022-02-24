@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -36,6 +37,10 @@ public class LoginPage extends AppCompatActivity {
                             startActivity(i1);
                         }
 
+                    }
+                    else
+                    {
+                        Toast.makeText(LoginPage.this, "Invalid email ID or password", Toast.LENGTH_SHORT).show();;
                     }
                 }
         });

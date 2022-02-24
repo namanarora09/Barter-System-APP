@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.89" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/CreateAccount"
         android:layout_width="151dp"
         android:layout_height="74dp"
         android:text="create account"
@@ -62,14 +62,14 @@
         app:layout_constraintVertical_bias="0.744" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/Name"
         android:layout_width="208dp"
         android:layout_height="54dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
         android:textColorHint="#7A6666"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
+        app:layout_constraintBottom_toTopOf="@+id/Phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -77,14 +77,14 @@
         app:layout_constraintVertical_bias="0.783" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/Phone"
         android:layout_width="205dp"
         android:layout_height="48dp"
         android:ems="10"
         android:hint="Phone no.."
         android:inputType="phone"
         android:textColorHint="#7A6666"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/EmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -92,14 +92,14 @@
         app:layout_constraintVertical_bias="0.879" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/EmailAddress"
         android:layout_width="202dp"
         android:layout_height="55dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColorHint="#7A6666"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toTopOf="@+id/Zip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.904"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,22 +113,22 @@
         android:text="Postal Code"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toTopOf="@+id/CreateAccount"
+        app:layout_constraintEnd_toStartOf="@+id/Zip"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.719" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/Zip"
         android:layout_width="202dp"
         android:layout_height="57dp"
         android:ems="10"
         android:hint="Zip code"
         android:inputType="textPersonName"
         android:textColorHint="#7A6666"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/CreateAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.899"
         app:layout_constraintStart_toStartOf="parent"

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    android:textAlignment="center"
     tools:context=".HomePage">
 
 
@@ -39,22 +40,24 @@
             app:srcCompat="@drawable/logo" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/menu"
             android:layout_width="55dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="151dp"
-            android:layout_marginEnd="7dp"
+            android:layout_marginEnd="23dp"
             android:layout_toEndOf="@+id/homeTitle"
             android:clickable="true"
             android:contentDescription="@string/menu"
+            android:onClick="showPopup"
+            android:theme="@style/Platform.MaterialComponents.Light"
             app:srcCompat="@drawable/ic_baseline_menu_24"
             tools:ignore="TouchTargetSizeCheck" />
 
     </RelativeLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/sell"
         android:layout_width="190dp"
         android:layout_height="168dp"
         android:text="Sell"
@@ -78,38 +81,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/sell" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="409dp"
         android:layout_height="1dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:background="?android:attr/listDivider"
+        android:textAlignment="center"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <SearchView
-        android:layout_width="409dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:queryHint="Search"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        app:layout_constraintVertical_bias="0.158" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="185dp"
-        android:layout_height="28dp"
+        android:layout_width="410dp"
+        android:layout_height="61dp"
         android:layout_marginBottom="4dp"
-        android:text="Contact details"
-        android:textSize="24sp"
+        android:text="For any kind of help feel free to contact at\n barter@gmail.com"
+        android:textAlignment="center"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,5 +117,24 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="379dp"
+        android:layout_height="56dp"
+        android:background="@drawable/border"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="44dp"
+        android:ems="10"
+        android:hint="Search"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/sell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

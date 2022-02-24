@@ -27,6 +27,7 @@
             android:layout_centerVertical="true"
             android:clickable="true"
             android:minWidth="48dp"
+            android:theme="@style/Platform.MaterialComponents.Light"
             android:minHeight="48dp"
             android:src="@drawable/ic_baseline_arrow_back_24"
             tools:ignore="SpeakableTextPresentCheck" />
