@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Menu;
@@ -25,8 +26,21 @@ public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
         setContentView(R.layout.activity_home_page);
         ImageView menuImage=findViewById(R.id.menu);
         Button sell=findViewById(R.id.sell);
-        TextView search=findViewById(R.id.search);
-        String searched=search.getText().toString();
+        SearchView mySearhView=(SearchView)findViewById(R.id.search);
+
+        mySearhView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                Intent searchHome=new Intent(HomePage.this,SearchResult.class);
+                startActivity(searchHome);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
 
         sell.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +68,8 @@ public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
             case R.id.about:
                 return true;
             case R.id.logout:
-                return true;
+                Intent LogOut=new Intent(HomePage.this,LoginPage.class);
+                startActivity(LogOut);
             case R.id.quit:
                 finishAffinity();
         }

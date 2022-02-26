@@ -11,6 +11,7 @@
     tools:context=".SellPage">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFE500"
@@ -23,7 +24,7 @@
         app:layout_constraintVertical_bias="0.000">
 
         <ImageView
-            android:id="@+id/left_icon"
+            android:id="@+id/backSell"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -39,139 +40,122 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/left_icon"
+            android:layout_toEndOf="@+id/backSell"
             android:text="Sell"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
     </RelativeLayout>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="70dp"
         android:layout_height="49dp"
+        android:layout_marginTop="24dp"
         android:text="Title:"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintEnd_toStartOf="@+id/sellTitle"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/group"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
 
     <EditText
         android:id="@+id/sellTitle"
         android:layout_width="249dp"
         android:layout_height="48dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="28dp"
         android:ems="10"
         android:hint="Ad Title"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="#000000"
         android:textColorHint="#7A6666"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        android:theme="@style/Platform.MaterialComponents.Light"
+        app:layout_constraintBottom_toTopOf="@+id/category"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3"
+        app:layout_constraintVertical_bias="0.247" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="328dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginStart="16dp"
         android:text="Category"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/category"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.666" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="151dp"
         android:layout_height="30dp"
-        android:layout_marginTop="165dp"
-        android:layout_marginBottom="165dp"
+        android:layout_marginStart="16dp"
         android:text="Description:"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/uploadImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintBottom_toTopOf="@+id/description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.912" />
 
     <ImageButton
         android:id="@+id/uploadImage"
         android:layout_width="69dp"
         android:layout_height="55dp"
-        android:theme="@style/Platform.MaterialComponents.Light"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="72dp"
         android:background="@drawable/border"
-        android:layout_marginBottom="16dp"
         android:contentDescription="@string/image_upload"
-        app:layout_constraintBottom_toTopOf="@+id/addButton"
+        android:theme="@style/Platform.MaterialComponents.Light"
+        app:layout_constraintBottom_toTopOf="@+id/cancelSell"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sellTitle"
-        app:layout_constraintVertical_bias="0.992"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="0.372"
         app:srcCompat="@android:drawable/ic_menu_upload" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="198dp"
         android:layout_height="46dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="36dp"
         android:text="Upload image:"
+        android:textAlignment="textEnd"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/uploadImage"
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
         app:layout_constraintEnd_toStartOf="@+id/uploadImage"
-        app:layout_constraintHorizontal_bias="0.808"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/uploadImage"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cancelSell"
         android:layout_width="107dp"
         android:layout_height="48dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="80dp"
         android:background="#00BCD4"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addButton"
-        app:layout_constraintHorizontal_bias="0.125"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="0.668"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/addButton"
         android:layout_width="90dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
         android:background="#00BCD4"
         android:backgroundTint="#00BCD4"
         android:text="Add"
         app:iconTint="#F44336"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.743"
+        app:layout_constraintEnd_toStartOf="@+id/cancelSell"
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941"
         tools:ignore="TextContrastCheck" />
 
     <androidx.constraintlayout.widget.Group
@@ -192,22 +176,23 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3"
+        app:layout_constraintVertical_bias="0.949" />
 
     <Spinner
         android:id="@+id/category"
-        android:layout_width="437dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="49dp"
-        android:contentDescription="@string/select_category"
-        android:visibility="visible"
+        android:layout_width="411dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="172dp"
         android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        android:contentDescription="@string/select_category"
+        android:theme="@style/Platform.MaterialComponents.Light"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

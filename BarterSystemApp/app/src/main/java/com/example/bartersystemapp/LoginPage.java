@@ -36,11 +36,15 @@ public class LoginPage extends AppCompatActivity {
                         if(pass.equals("barter")) {
                             startActivity(i1);
                         }
+                        else
+                        {
+                            Toast.makeText(LoginPage.this, "Invalid email ID or password", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                     else
                     {
-                        Toast.makeText(LoginPage.this, "Invalid email ID or password", Toast.LENGTH_SHORT).show();;
+                        Toast.makeText(LoginPage.this, "Invalid email ID or password", Toast.LENGTH_SHORT).show();
                     }
                 }
         });

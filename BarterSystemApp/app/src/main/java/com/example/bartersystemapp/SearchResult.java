@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 public class SearchResult extends AppCompatActivity {
 
@@ -18,6 +21,14 @@ public class SearchResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
         RecyclerView recyclerView=findViewById(R.id.recycleView);
+        ImageView backSearchResult=findViewById(R.id.backSearchResult);
+        backSearchResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent backResult=new Intent(SearchResult.this,HomePage.class);
+                startActivity(backResult);
+            }
+        });
 
         s1=getResources().getStringArray(R.array.Titles);
         s2=getResources().getStringArray(R.array.description);

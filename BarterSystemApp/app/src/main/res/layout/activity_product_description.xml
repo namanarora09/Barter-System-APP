@@ -26,10 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:clickable="true"
-            android:theme="@style/Platform.MaterialComponents.Light"
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:src="@drawable/ic_baseline_arrow_back_24"
+            android:theme="@style/Platform.MaterialComponents.Light"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView

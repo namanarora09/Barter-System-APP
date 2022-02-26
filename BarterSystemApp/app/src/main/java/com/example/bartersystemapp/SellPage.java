@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -30,6 +31,14 @@ public class SellPage extends AppCompatActivity {
         ImageButton uploadImage=findViewById(R.id.uploadImage);
         Button cancelSell=findViewById(R.id.cancelSell);
         Button addButton=findViewById(R.id.addButton);
+        ImageView backSell=findViewById(R.id.backSell);
+        backSell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent backToHome=new Intent(SellPage.this,HomePage.class);
+                startActivity(backToHome);
+            }
+        });
 
         List<String> categories=new ArrayList<>();
         categories.add(0,"Select");
