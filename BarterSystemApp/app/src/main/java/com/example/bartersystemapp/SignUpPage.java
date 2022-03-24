@@ -17,10 +17,12 @@ public class SignUpPage extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up_page);
         Button accountCreation=findViewById(R.id.CreateAccount);
         TextView name=findViewById(R.id.Name);
+        TextView pass=findViewById(R.id.passwordSetup);
         TextView mobile=findViewById(R.id.Phone);
         TextView email=findViewById(R.id.EmailAddress);
         TextView zip=findViewById(R.id.Zip);
         String Name=name.getText().toString();
+        String Password=pass.getText().toString();
         String Mobile=mobile.getText().toString();
         String Email=email.getText().toString();
         String Zip=zip.getText().toString();
