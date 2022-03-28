@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ public class ProductDescription extends AppCompatActivity {
     int myImage;
     ImageView mainImageView;
     TextView title,description;
+    Button makeOffer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class ProductDescription extends AppCompatActivity {
         mainImageView=findViewById(R.id.ProductImage);
         title=findViewById(R.id.title);
         description=findViewById(R.id.description);
+        makeOffer=findViewById(R.id.offer);
         ImageView backproductdetails=findViewById(R.id.backProductDetails);
         backproductdetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +37,15 @@ public class ProductDescription extends AppCompatActivity {
 
         getData();
         setData();
+
+        makeOffer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent offer=new Intent(ProductDescription.this,MakeOffer.class);
+                startActivity(offer);
+
+            }
+        });
     }
     private void getData(){
         if(getIntent().hasExtra("myImage") && getIntent().hasExtra("data1") && getIntent().hasExtra("data2")){
@@ -52,4 +64,6 @@ public class ProductDescription extends AppCompatActivity {
         description.setText(data2);
         mainImageView.setImageResource(myImage);
     }
+
+
 }

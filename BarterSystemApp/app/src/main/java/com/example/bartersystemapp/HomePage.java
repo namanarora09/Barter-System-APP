@@ -63,8 +63,6 @@ public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch(menuItem.getItemId()){
-            case R.id.details:
-                return true;
             case R.id.about:
                 return true;
             case R.id.logout:

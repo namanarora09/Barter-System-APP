@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellow"
+    android:background="#FFE500"
     tools:context=".SignUpPage">
 
     <TextView
@@ -69,8 +69,8 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
-        android:theme="@style/Platform.MaterialComponents.Light"
         android:textColorHint="#7A6666"
+        android:theme="@style/Platform.MaterialComponents.Light"
         app:layout_constraintBottom_toTopOf="@+id/Phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
@@ -85,8 +85,8 @@
         android:ems="10"
         android:hint="Phone no.."
         android:inputType="phone"
-        android:theme="@style/Platform.MaterialComponents.Light"
         android:textColorHint="#7A6666"
+        android:theme="@style/Platform.MaterialComponents.Light"
         app:layout_constraintBottom_toTopOf="@+id/EmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.451"
@@ -130,9 +130,9 @@
         android:layout_height="57dp"
         android:ems="10"
         android:hint="Zip code"
-        android:theme="@style/Platform.MaterialComponents.Light"
         android:inputType="textPersonName"
         android:textColorHint="#7A6666"
+        android:theme="@style/Platform.MaterialComponents.Light"
         app:layout_constraintBottom_toTopOf="@+id/CreateAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.899"
@@ -176,11 +176,12 @@
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="Password"
-        android:background="@style/Platform.MaterialComponents.Light"
         android:inputType="textPersonName"
         android:textColor="#000000"
+        android:theme="@style/Platform.MaterialComponents.Light"
         app:layout_constraintBottom_toTopOf="@+id/CreateAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Zip"
         app:layout_constraintVertical_bias="0.237" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

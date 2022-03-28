@@ -30,7 +30,7 @@ public class SignUpPage extends AppCompatActivity {
         accountCreation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent create=new Intent(SignUpPage.this,HomePage.class);
+                Intent create=new Intent(SignUpPage.this,LoginPage.class);
                 startActivity(create);
             }
         });
