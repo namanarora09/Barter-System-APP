@@ -5,9 +5,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 public class DatabaseManager extends SQLiteOpenHelper {
 
     //Initialize Variable
@@ -37,11 +34,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+table3);
     }
 
-    public Boolean insertOffer(Integer Id,String Ad_owner,String Customer,String Offer,String Mobile)
+    public Boolean insertOffer(String Ad_owner,String Customer,String Offer,String Mobile)
     {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
-        contentValues.put("Id",Id);
         contentValues.put("Ad_owner",Ad_owner);
         contentValues.put("Customer",Customer);
         contentValues.put("Offer",Offer);
@@ -52,4 +48,36 @@ public class DatabaseManager extends SQLiteOpenHelper {
         else
             return true;
     }
+
+    public void deleteAds(Integer Id)
+    {
+        SQLiteDatabase db=getWritableDatabase();
+        String sQuery="delete from "+table2+" where id='"+Id+"'";
+        db.execSQL(sQuery);
+    }
+
+    public Boolean insertAds(Integer Id,String Email,String Title,String Category,String Description)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("Id",Id);
+        contentValues.put("Email",Email);
+        contentValues.put("Title",Title);
+        contentValues.put("Category",Category);
+        contentValues.put("Description",Description);
+        long result=db.insert(table2,null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public void deleteOffers(Integer Id)
+    {
+        SQLiteDatabase db = getWritableDatabase ();
+        String sQuery = "delete from " + table3 + " where id='" + Id + "'";
+        db.execSQL(sQuery);
+    }
+
+
 }

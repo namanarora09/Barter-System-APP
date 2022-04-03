@@ -64,7 +64,8 @@ public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch(menuItem.getItemId()){
             case R.id.about:
-                return true;
+                Intent About=new Intent(HomePage.this,AboutPage.class);
+                startActivity(About);
             case R.id.logout:
                 Intent LogOut=new Intent(HomePage.this,LoginPage.class);
                 startActivity(LogOut);

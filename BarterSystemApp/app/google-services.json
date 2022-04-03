@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "371995972125",
+    "project_id": "barter-system-app-2e4bb",
+    "storage_bucket": "barter-system-app-2e4bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371995972125:android:62ab9a7dc940abd5f22cf4",
+        "android_client_info": {
+          "package_name": "com.example.bartersystemapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371995972125-jt0du027eriov5a31fnpg4041roalk12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3Slt2ENtfmOP02cSg_g09_-N9YpMvDaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371995972125-jt0du027eriov5a31fnpg4041roalk12.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

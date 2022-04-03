@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignUpPage extends AppCompatActivity {
 
@@ -31,6 +32,8 @@ public class SignUpPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent create=new Intent(SignUpPage.this,LoginPage.class);
+                if(Name.isEmpty() || Password.isEmpty() || Mobile.isEmpty() || Email.isEmpty() || Zip.isEmpty())
+                    Toast.makeText(SignUpPage.this, "Please fill all the details", Toast.LENGTH_SHORT).show();
                 startActivity(create);
             }
         });
