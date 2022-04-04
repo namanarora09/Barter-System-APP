@@ -66,11 +66,14 @@ public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
             case R.id.about:
                 Intent About=new Intent(HomePage.this,AboutPage.class);
                 startActivity(About);
+                break;
             case R.id.logout:
                 Intent LogOut=new Intent(HomePage.this,LoginPage.class);
                 startActivity(LogOut);
+                break;
             case R.id.quit:
                 finishAffinity();
+                break;
         }
         return true;
     }
