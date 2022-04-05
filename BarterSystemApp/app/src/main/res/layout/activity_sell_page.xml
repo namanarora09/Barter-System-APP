@@ -108,6 +108,7 @@
         android:layout_height="55dp"
         android:layout_marginEnd="76dp"
         android:background="@drawable/border"
+        android:clickable="true"
         android:contentDescription="@string/image_upload"
         android:theme="@style/Platform.MaterialComponents.Light"
         app:layout_constraintBottom_toTopOf="@+id/cancelSell"
@@ -160,7 +161,8 @@
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="description"/>
 
     <EditText
         android:id="@+id/description"
@@ -193,5 +195,26 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:indeterminate="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="57dp"
+        android:layout_height="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/uploadImage"
+        app:layout_constraintTop_toTopOf="@+id/uploadImage"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
