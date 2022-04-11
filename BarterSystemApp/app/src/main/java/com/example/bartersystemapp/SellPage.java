@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -37,8 +38,8 @@ public class SellPage extends AppCompatActivity {
 
     public static final int PICK_IMAGE_REQUEST=1;
     String item,title,desc,imageName;
-    int Id;
-    TextView description;
+    DatabaseManager DB;
+    TextView descriptionByUser;
     public ProgressBar mProgressBar;
     ImageView mImageView;
 
@@ -46,25 +47,25 @@ public class SellPage extends AppCompatActivity {
     public StorageReference mStorageRef;
     public DatabaseReference mDatabaseRef;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell_page);
         TextView sellTitle=findViewById(R.id.sellTitle);
         Spinner category=findViewById(R.id.category);
-        description=findViewById(R.id.description);
+        descriptionByUser=findViewById(R.id.descriptionSEll);
         ImageButton uploadImage=findViewById(R.id.uploadImage);
         Button cancelSell=findViewById(R.id.cancelSell);
         Button addButton=findViewById(R.id.addButton);
+        Button test=findViewById(R.id.testing);
         ImageView backSell=findViewById(R.id.backSell);
-
         mProgressBar=findViewById(R.id.progress_bar);
         mImageView=findViewById(R.id.photo);
+        DB=new DatabaseManager(this);
 
-        mStorageRef= FirebaseStorage.getInstance().getReference();
-        mDatabaseRef= FirebaseDatabase.getInstance().getReference();
-
-        desc=description.getText().toString();
+        mStorageRef=FirebaseStorage.getInstance().getReference();
+        mDatabaseRef=FirebaseDatabase.getInstance().getReference();
 
         backSell.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +92,7 @@ public class SellPage extends AppCompatActivity {
         category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String item = adapterView.getItemAtPosition(i).toString();
+                item = adapterView.getItemAtPosition(i).toString();
             }
 
             @Override
@@ -103,6 +104,8 @@ public class SellPage extends AppCompatActivity {
         uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                title=sellTitle.getText().toString();
+                desc=descriptionByUser.getText().toString();
                 openFileChooser();
             }
 
@@ -117,17 +120,28 @@ public class SellPage extends AppCompatActivity {
             }
         });
 
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadFile();
+            }
+        });
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                title=sellTitle.getText().toString();
-                uploadFile();
+                Boolean insertSell=DB.insertAds(LoginPage.emailId,title,item,desc,imageName);
+                if(insertSell==true)
+                    Toast.makeText(SellPage.this, "New Entry inserted", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(SellPage.this, "Failed", Toast.LENGTH_SHORT).show();
                 Intent add=new Intent(SellPage.this,HomePage.class);
                 startActivity(add);
             }
         });
 
     }
+
     private void openFileChooser()
     {
         Intent choose=new Intent();
@@ -156,7 +170,7 @@ public class SellPage extends AppCompatActivity {
 
     private void uploadFile(){
         if(mImageUri!=null){
-            imageName=title+"."+getFileExtension(mImageUri);
+            imageName=System.currentTimeMillis()+"."+getFileExtension(mImageUri);
             StorageReference fileReference=mStorageRef.child(imageName);
 
             fileReference.putFile(mImageUri)

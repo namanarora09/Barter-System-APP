@@ -2,6 +2,7 @@ package com.example.bartersystemapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -22,8 +23,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //Creating tables
         db.execSQL("create Table "+table1+"(Name TEXT not null,Phone TEXT not null,Email TEXT PRIMARY KEY,Zip_code TEXT not null,Password TEXT not null)");
-        db.execSQL("create Table "+table2+"(Id INTEGER PRIMARY KEY AUTOINCREMENT,Email TEXT not null,Title TEXT not null,Category TEXT not null,Description TEXT not null,Image blob not null)");
-        db.execSQL("create Table "+table3+"(Id INTEGER not null,Ad_owner TEXT not null,Customer TEXT not null,Offer TEXT not null,Mobile TEXT not null)");
+        db.execSQL("create Table "+table2+"(ID String PRIMARY KEY AUTOINCREMENT,Email TEXT ,Title TEXT ,Category TEXT ,Description TEXT ,Image text )");
+        db.execSQL("create Table "+table3+"(ID String PRIMARY KEY,Title TEXT ,Ad_owner TEXT ,Customer TEXT ,Offer TEXT ,Mobile TEXT)");
     }
 
     @Override
@@ -34,10 +35,47 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+table3);
     }
 
-    public Boolean insertOffer(String Ad_owner,String Customer,String Offer,String Mobile)
+
+    public Boolean insertAds(String Email,String Title,String Category,String Description,String Image)
     {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
+        contentValues.put("Email",Email);
+        contentValues.put("Title",Title);
+        contentValues.put("Category",Category);
+        contentValues.put("Description",Description);
+        contentValues.put("Image",Image);
+        long result=db.insert(table2,null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public void deleteAds(String Title)
+    {
+        SQLiteDatabase db=getWritableDatabase();
+        String sQuery="delete from "+table2+" where Title='"+Title+"'";
+        db.execSQL(sQuery);
+    }
+
+
+    Cursor readAds(){
+        String query="SELECT * FROM "+table2+" where Email!='"+LoginPage.emailId+ "'";
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        Cursor cursor=null;
+        if(db!=null){
+            cursor=db.rawQuery(query,null);
+        }
+        return cursor;
+    }
+
+    public Boolean insertOffer(String Title,String Ad_owner,String Customer,String Offer,String Mobile)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("Title",Title);
         contentValues.put("Ad_owner",Ad_owner);
         contentValues.put("Customer",Customer);
         contentValues.put("Offer",Offer);
@@ -49,35 +87,11 @@ public class DatabaseManager extends SQLiteOpenHelper {
             return true;
     }
 
-    public void deleteAds(Integer Id)
-    {
-        SQLiteDatabase db=getWritableDatabase();
-        String sQuery="delete from "+table2+" where id='"+Id+"'";
-        db.execSQL(sQuery);
-    }
-
-    public Boolean insertAds(Integer Id,String Email,String Title,String Category,String Description)
-    {
-        SQLiteDatabase db=this.getWritableDatabase();
-        ContentValues contentValues=new ContentValues();
-        contentValues.put("Id",Id);
-        contentValues.put("Email",Email);
-        contentValues.put("Title",Title);
-        contentValues.put("Category",Category);
-        contentValues.put("Description",Description);
-        long result=db.insert(table2,null,contentValues);
-        if(result==-1)
-            return false;
-        else
-            return true;
-    }
-
-    public void deleteOffers(Integer Id)
+    public void deleteOffers(Integer Title)
     {
         SQLiteDatabase db = getWritableDatabase ();
-        String sQuery = "delete from " + table3 + " where id='" + Id + "'";
+        String sQuery = "delete from " + table3 + " where Title='" + Title + "'";
         db.execSQL(sQuery);
     }
-
 
 }

@@ -1,7 +1,8 @@
 package com.example.bartersystemapp;
 
-public class Upload {
+import android.net.Uri;
 
+public class Upload {
     private String mName;
     private String mImageUrl;
 

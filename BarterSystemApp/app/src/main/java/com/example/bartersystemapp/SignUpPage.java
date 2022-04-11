@@ -34,7 +34,8 @@ public class SignUpPage extends AppCompatActivity {
                 Intent create=new Intent(SignUpPage.this,LoginPage.class);
                 if(Name.isEmpty() || Password.isEmpty() || Mobile.isEmpty() || Email.isEmpty() || Zip.isEmpty())
                     Toast.makeText(SignUpPage.this, "Please fill all the details", Toast.LENGTH_SHORT).show();
-                startActivity(create);
+                else
+                    startActivity(create);
             }
         });
 

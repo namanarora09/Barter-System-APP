@@ -8,6 +8,7 @@
     android:fadeScrollbars="true"
     android:focusableInTouchMode="true"
     android:layoutDirection="inherit"
+    android:textAlignment="center"
     tools:context=".SellPage">
 
     <RelativeLayout
@@ -87,7 +88,7 @@
         app:layout_constraintBottom_toTopOf="@+id/category"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintVertical_bias="0.285" />
 
     <TextView
         android:id="@+id/textView3"
@@ -97,38 +98,38 @@
         android:text="Description:"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/description"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionSEll"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.893" />
+        app:layout_constraintVertical_bias="0.899" />
 
     <ImageButton
         android:id="@+id/uploadImage"
         android:layout_width="69dp"
         android:layout_height="55dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginEnd="168dp"
         android:background="@drawable/border"
         android:clickable="true"
         android:contentDescription="@string/image_upload"
         android:theme="@style/Platform.MaterialComponents.Light"
         app:layout_constraintBottom_toTopOf="@+id/cancelSell"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-        app:layout_constraintVertical_bias="0.246"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionSEll"
+        app:layout_constraintVertical_bias="0.23"
         app:srcCompat="@android:drawable/ic_menu_upload" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="198dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="76dp"
+        android:layout_width="171dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="52dp"
         android:text="Upload image:"
         android:textAlignment="textEnd"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/addButton"
         app:layout_constraintEnd_toStartOf="@+id/uploadImage"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -140,7 +141,7 @@
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionSEll"
         app:layout_constraintVertical_bias="0.898"
         tools:ignore="TextContrastCheck" />
 
@@ -158,35 +159,18 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextContrastCheck" />
 
+
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="description"/>
-
-    <EditText
-        android:id="@+id/description"
-        android:layout_width="378dp"
-        android:layout_height="176dp"
-        android:background="@drawable/border"
-        android:editable="true"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Tell something about the product"
-        android:inputType="textMultiLine"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3"
-        app:layout_constraintVertical_bias="0.93" />
+        app:constraint_referenced_ids="descriptionSEll" />
 
     <Spinner
         android:id="@+id/category"
         android:layout_width="411dp"
         android:layout_height="56dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="164dp"
         android:background="@color/black"
         android:contentDescription="@string/select_category"
         android:theme="@style/Platform.MaterialComponents.Light"
@@ -213,8 +197,35 @@
         android:layout_width="57dp"
         android:layout_height="52dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toEndOf="@+id/uploadImage"
         app:layout_constraintTop_toTopOf="@+id/uploadImage"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/testing"
+        android:layout_width="97dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="8dp"
+        android:text="Upload"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/photo" />
+
+    <EditText
+        android:id="@+id/descriptionSEll"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:hint="Product Description"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
