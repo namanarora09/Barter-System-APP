@@ -35,6 +35,35 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+table3);
     }
 
+    public Boolean insertLogin(String Name,String Phone,String Email,String Zip_code,String Password)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues values=new ContentValues();
+        values.put("Name",Name);
+        values.put("Phone",Phone);
+        values.put("Email",Email);
+        values.put("Zip_code",Zip_code);
+        values.put("Password",Password);
+        long result=db.insert(table1,null,values);
+        if(result==1)
+            return false;
+        else
+            return true;
+    }
+
+    public Boolean checkuser(String Email,String Password)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        String[] columns={"Name"};
+        String selection="Email =?"+" and "+"Password=?";
+        String[] selectionargs={Email,Password};
+        Cursor cursor=db.query(table1,columns,selection,selectionargs,null,null,null);
+        int count= cursor.getCount();
+        if(count>0)
+            return true;
+        else
+            return false;
+    }
 
     public Boolean insertAds(String Email,String Title,String Category,String Description,String Image)
     {

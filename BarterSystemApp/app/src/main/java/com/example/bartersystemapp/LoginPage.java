@@ -24,6 +24,7 @@ public class LoginPage extends AppCompatActivity {
 
     public static String emailId;
     ActivityResultLauncher<Intent> mGetPermission;
+    private DatabaseManager db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class LoginPage extends AppCompatActivity {
         Button signin=findViewById(R.id.signIn);
         EditText email=findViewById(R.id.email);
         EditText password=findViewById(R.id.password);
+        db=new DatabaseManager(this);
         mGetPermission=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -61,21 +63,17 @@ public class LoginPage extends AppCompatActivity {
                 emailId=email.getText().toString();
                 String pass=password.getText().toString();
                 if(isPermissionGranted()){
-                    if (emailId.equals("barter@gmail.com") || emailId.equals("1@gmail.com")) {
-                        if(pass.equals("barter")) {
-                            //i1.putExtra("emailId",emailId);
-
-                            startActivity(i1);
-                        }
-                        else
-                        {
-                            Toast.makeText(LoginPage.this, "Invalid email ID or password", Toast.LENGTH_SHORT).show();
-                        }
-
+                    if(emailId==null || pass==null)
+                    {
+                        Toast.makeText(LoginPage.this, "Null values encountered", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
-                        Toast.makeText(LoginPage.this, "Invalid email ID or password", Toast.LENGTH_SHORT).show();
+                        Boolean var=db.checkuser(emailId,pass);
+                        if(var)
+                            startActivity(i1);
+                        else
+                            Toast.makeText(LoginPage.this, "Invalid email ID or password", Toast.LENGTH_SHORT).show();
                     }}
                 else
                     takePermissions();
