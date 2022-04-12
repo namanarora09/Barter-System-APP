@@ -123,6 +123,7 @@ public class SellPage extends AppCompatActivity {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(SellPage.this, "Uploading image", Toast.LENGTH_SHORT).show();
                 uploadFile();
             }
         });
@@ -130,13 +131,17 @@ public class SellPage extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean insertSell=DB.insertAds(LoginPage.emailId,title,item,desc,imageName);
-                if(insertSell==true)
-                    Toast.makeText(SellPage.this, "New Entry inserted", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(SellPage.this, "Failed", Toast.LENGTH_SHORT).show();
-                Intent add=new Intent(SellPage.this,HomePage.class);
-                startActivity(add);
+                if(title==null || desc==null || imageName==null)
+                    Toast.makeText(SellPage.this, "Fill in all the details", Toast.LENGTH_SHORT).show();
+                else {
+                    Boolean insertSell=DB.insertAds(LoginPage.emailId,title,item,desc,imageName);
+                    if(insertSell==true)
+                        Toast.makeText(SellPage.this, "New Entry inserted", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(SellPage.this, "Failed", Toast.LENGTH_SHORT).show();
+                    Intent add=new Intent(SellPage.this,HomePage.class);
+                    startActivity(add);
+                }
             }
         });
 

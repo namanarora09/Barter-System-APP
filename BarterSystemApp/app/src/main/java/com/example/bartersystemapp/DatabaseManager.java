@@ -22,9 +22,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Creating tables
-        db.execSQL("create Table "+table1+"(Name TEXT not null,Phone TEXT not null,Email TEXT PRIMARY KEY,Zip_code TEXT not null,Password TEXT not null)");
-        db.execSQL("create Table "+table2+"(ID String PRIMARY KEY AUTOINCREMENT,Email TEXT ,Title TEXT ,Category TEXT ,Description TEXT ,Image text )");
-        db.execSQL("create Table "+table3+"(ID String PRIMARY KEY,Title TEXT ,Ad_owner TEXT ,Customer TEXT ,Offer TEXT ,Mobile TEXT)");
+        db.execSQL("create Table "+table1+"(Name TEXT,Phone TEXT,Email TEXT PRIMARY KEY,Zip_code TEXT,Password TEXT)");
+        db.execSQL("create Table "+table2+"(ID INTEGER PRIMARY KEY AUTOINCREMENT,Email TEXT ,Title TEXT ,Category TEXT ,Description TEXT ,Image TEXT)");
+        db.execSQL("create Table "+table3+"(ID INTEGER PRIMARY KEY,Title TEXT ,Ad_owner TEXT ,Customer TEXT ,Offer TEXT ,Mobile TEXT)");
     }
 
     @Override
