@@ -24,7 +24,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         //Creating tables
         db.execSQL("create Table "+table1+"(Name TEXT,Phone TEXT,Email TEXT PRIMARY KEY,Zip_code TEXT,Password TEXT)");
         db.execSQL("create Table "+table2+"(ID INTEGER PRIMARY KEY AUTOINCREMENT,Email TEXT ,Title TEXT ,Category TEXT ,Description TEXT ,Image TEXT)");
-        db.execSQL("create Table "+table3+"(ID INTEGER PRIMARY KEY,Title TEXT ,Ad_owner TEXT ,Customer TEXT ,Offer TEXT ,Mobile TEXT)");
+        db.execSQL("create Table "+table3+"(ID TEXT,Title TEXT ,Ad_owner TEXT ,Customer TEXT ,Offer TEXT)");
     }
 
     @Override
@@ -100,15 +100,15 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Boolean insertOffer(String Title,String Ad_owner,String Customer,String Offer,String Mobile)
+    public Boolean insertOffer(String ID,String Title,String Ad_owner,String Customer,String Offer)
     {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
+        contentValues.put("ID",ID);
         contentValues.put("Title",Title);
         contentValues.put("Ad_owner",Ad_owner);
         contentValues.put("Customer",Customer);
         contentValues.put("Offer",Offer);
-        contentValues.put("Mobile",Mobile);
         long result=db.insert(table3,null,contentValues);
         if(result==-1)
             return false;
@@ -116,11 +116,22 @@ public class DatabaseManager extends SQLiteOpenHelper {
             return true;
     }
 
-    public void deleteOffers(Integer Title)
+    public void deleteOffers(String Title)
     {
         SQLiteDatabase db = getWritableDatabase ();
         String sQuery = "delete from " + table3 + " where Title='" + Title + "'";
         db.execSQL(sQuery);
+    }
+
+    Cursor readOffers(){
+        String query="SELECT * FROM "+table3+" where Ad_owner='"+LoginPage.emailId+ "'";
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        Cursor cursor=null;
+        if(db!=null){
+            cursor=db.rawQuery(query,null);
+        }
+        return cursor;
     }
 
 }

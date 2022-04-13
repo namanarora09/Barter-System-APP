@@ -25,7 +25,6 @@ public class SearchResult extends AppCompatActivity {
 
     DatabaseManager DB;
     ArrayList<String> titleSearchResult,categorySearchResult,idSearchResult,descSearchResult,emailSearchResult,imageSearchResult;
-    private
     MyAdapter myAdapter;
     RecyclerView recyclerView;
 

@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.000">
 
         <ImageView
-            android:id="@+id/backSell"
+            android:id="@+id/backOffer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -37,21 +37,21 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/backSell"
+            android:layout_toEndOf="@+id/backOffer"
             android:text="Make an Offer"
             android:textColor="@color/black"
             android:textSize="22sp" />
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/offerDeacription"
         android:layout_width="357dp"
         android:layout_height="179dp"
         android:layout_marginTop="124dp"
         android:background="@drawable/border"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Describe the product"
+        android:hint="Describe the product you are offering"
         android:inputType="textMultiLine"
         android:textColor="#000000"
         android:textColorHint="#7A6666"
@@ -64,10 +64,11 @@
         android:id="@+id/textView7"
         android:layout_width="297dp"
         android:layout_height="47dp"
-        android:text="What are you willing to offer"
+        android:text="What are you willing to offer?"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/offerDeacription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,20 +76,20 @@
         app:layout_constraintVertical_bias="0.695" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/submitOffer"
         android:layout_width="99dp"
         android:layout_height="86dp"
         android:layout_marginBottom="180dp"
         android:clickable="true"
         android:contentDescription="@string/offer"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintEnd_toStartOf="@+id/cancelOffer"
         app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_baseline_check_circle_24" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/cancelOffer"
         android:layout_width="96dp"
         android:layout_height="86dp"
         android:layout_marginEnd="88dp"

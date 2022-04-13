@@ -47,7 +47,7 @@ public class ProductDescription extends AppCompatActivity {
         Toast.makeText(this, "Loading image...", Toast.LENGTH_SHORT).show();
         mStorageReference= FirebaseStorage.getInstance().getReference();
         StorageReference islandRef=mStorageReference.child(imageFinal);
-        final long ONE_MEGABYTE=1024*1024;
+        final long ONE_MEGABYTE=1024*1024*10;
         islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {

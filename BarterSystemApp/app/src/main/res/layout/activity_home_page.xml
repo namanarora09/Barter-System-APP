@@ -98,6 +98,7 @@
         app:layout_goneMarginBottom="10dp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecycleHome"
         android:layout_width="410dp"
         android:layout_height="179dp"
         android:layout_marginTop="16dp"

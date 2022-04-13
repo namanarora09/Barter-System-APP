@@ -1,8 +1,11 @@
 package com.example.bartersystemapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -16,9 +19,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Menu;
 
+import java.util.ArrayList;
+
 public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     boolean DoublePressToExit=false;
+    DatabaseManager db;
+    ArrayList<String> titleHome,OfferedHome,idHome,emailHome;
+    MyAdapterHome myAdapterHome;
+    RecyclerView recyclerHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +36,14 @@ public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
         ImageView menuImage=findViewById(R.id.menu);
         Button sell=findViewById(R.id.sell);
         SearchView mySearhView=(SearchView)findViewById(R.id.search);
+        recyclerHome=findViewById(R.id.RecycleHome);
+        db=new DatabaseManager(this);
+        titleHome=new ArrayList<>();
+        OfferedHome=new ArrayList<>();
+        idHome=new ArrayList<>();
+        emailHome=new ArrayList<>();
 
+        storedataHome();
         mySearhView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -49,7 +65,23 @@ public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
                 startActivity(sellpage);
             }
         });
+        myAdapterHome=new MyAdapterHome(HomePage.this,idHome,titleHome,emailHome,OfferedHome);
+        recyclerHome.setAdapter(myAdapterHome);
+        recyclerHome.setLayoutManager(new LinearLayoutManager(this));
+    }
 
+    void storedataHome(){
+        Cursor cursor=db.readOffers();
+        if(cursor.getCount()!=0)
+        {
+            while(cursor.moveToNext())
+            {
+                titleHome.add(cursor.getString(1));
+                OfferedHome.add(cursor.getString(4));
+                idHome.add(cursor.getString(0));
+                emailHome.add(cursor.getString(3));
+            }
+        }
     }
 
     public void showPopup(View v)

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     ArrayList titleSearchResult,categorySearchResult,idSearchResult,descSearchResult,emailSearchResult,imageSearchResult;
-    String titleExtra,categoryExtra,idExtra,descExtra,emailExtra,imageExtra;
+    public static String titleExtra,categoryExtra,idExtra,descExtra,emailExtra,imageExtra;
     Context context;
 
     MyAdapter(Context context, ArrayList titleSearchResult,ArrayList categorySearchResult,ArrayList idSearchResult,ArrayList descSearchResult,ArrayList emailSearchResult,ArrayList imageSearchResult){
