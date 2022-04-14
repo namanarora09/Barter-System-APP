@@ -81,10 +81,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
             return true;
     }
 
-    public void deleteAds(String Title)
+    public void deleteAds(Integer id)
     {
         SQLiteDatabase db=getWritableDatabase();
-        String sQuery="delete from "+table2+" where Title='"+Title+"'";
+        String sQuery="delete from "+table2+" where ID='"+id+"'";
         db.execSQL(sQuery);
     }
 
@@ -116,10 +116,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
             return true;
     }
 
-    public void deleteOffers(String Title)
+    public void deleteOffers(String id,String email)
     {
         SQLiteDatabase db = getWritableDatabase ();
-        String sQuery = "delete from " + table3 + " where Title='" + Title + "'";
+        String sQuery = "delete from " + table3 + " where ID='" + id + "' and Customer='"+email+"'";
         db.execSQL(sQuery);
     }
 

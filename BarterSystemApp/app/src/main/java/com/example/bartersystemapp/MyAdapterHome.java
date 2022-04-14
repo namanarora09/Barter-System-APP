@@ -49,6 +49,10 @@ public class MyAdapterHome extends RecyclerView.Adapter<MyAdapterHome.MyViewHold
                 titleLast=(String) titleHome.get(position);
                 emailLast=(String) emailHome.get(position);
                 OfferedLast=(String) OfferedHome.get(position);
+                intent.putExtra("idHome",idLast);
+                intent.putExtra("titleHome",titleLast);
+                intent.putExtra("emailHome",emailLast);
+                intent.putExtra("OfferedHome",OfferedLast);
                 context.startActivity(intent);
             }
         });

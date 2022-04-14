@@ -89,7 +89,7 @@
         android:layout_marginBottom="16dp"
         android:text="For any kind of help feel free to contact at\n barter@gmail.com"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:theme="@style/Platform.MaterialComponents.Light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

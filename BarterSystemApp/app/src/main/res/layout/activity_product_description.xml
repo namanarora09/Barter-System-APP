@@ -88,6 +88,7 @@
         android:layout_width="380dp"
         android:layout_height="129dp"
         android:background="@drawable/border"
+        android:editable="false"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/app_name"
