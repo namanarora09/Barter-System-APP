@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MakeOffer extends AppCompatActivity {
 
-    ImageView backOffer,submitOffer,cancelOffer;
+    ImageView submitOffer,cancelOffer;
     EditText offerDescription;
     String ProductOffered;
     DatabaseManager db;
@@ -22,19 +22,11 @@ public class MakeOffer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_offer);
 
-        backOffer=findViewById(R.id.backOffer);
         submitOffer=findViewById(R.id.submitOffer);
         cancelOffer=findViewById(R.id.cancelOffer);
         offerDescription=findViewById(R.id.offerDeacription);
         db=new DatabaseManager(this);
 
-        backOffer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent backoffer=new Intent(MakeOffer.this,ProductDescription.class);
-                startActivity(backoffer);
-            }
-        });
 
         submitOffer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +53,7 @@ public class MakeOffer extends AppCompatActivity {
         cancelOffer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cancelOffer=new Intent(MakeOffer.this,ProductDescription.class);
+                Intent cancelOffer=new Intent(MakeOffer.this,SearchResult.class);
                 startActivity(cancelOffer);
             }
         });

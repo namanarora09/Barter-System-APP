@@ -105,7 +105,6 @@ public class SellPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 title=sellTitle.getText().toString();
-                desc=descriptionByUser.getText().toString();
                 openFileChooser();
             }
 
@@ -131,6 +130,8 @@ public class SellPage extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                title=sellTitle.getText().toString();
+                desc=descriptionByUser.getText().toString();
                 if(title==null || desc==null || imageName==null)
                     Toast.makeText(SellPage.this, "Fill in all the details", Toast.LENGTH_SHORT).show();
                 else {

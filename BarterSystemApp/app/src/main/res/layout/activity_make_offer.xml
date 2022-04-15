@@ -20,18 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.000">
 
-        <ImageView
-            android:id="@+id/backOffer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:clickable="true"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            android:theme="@style/Platform.MaterialComponents.Light"
-            tools:ignore="SpeakableTextPresentCheck" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

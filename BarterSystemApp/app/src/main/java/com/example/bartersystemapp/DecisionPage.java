@@ -31,7 +31,7 @@ public class DecisionPage extends AppCompatActivity {
         backoffer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent backOffer=new Intent(DecisionPage.this,ProductDescription.class);
+                Intent backOffer=new Intent(DecisionPage.this,HomePage.class);
                 startActivity(backOffer);
             }
         });
